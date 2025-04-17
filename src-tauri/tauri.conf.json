@@ -17,7 +17,9 @@
         "width": 400,
         "height": 600,
         "decorations": false,
-        "zoomHotkeysEnabled": false
+        "zoomHotkeysEnabled": false,
+        "x": 2000,
+        "y": 0
       }
     ],
     "security": {
