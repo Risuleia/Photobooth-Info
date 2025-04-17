@@ -1,14 +1,14 @@
 @font-face {
-  font-family: IntegralCF;
-  src: url('./assets/Fonts/IntegralCF-Regular.otf');
+  font-family: Cinzel;
+  src: url('./assets/Fonts/Cinzel-VariableFont_wght.ttf');
 }
 @font-face {
   font-family: Satoshi;
   src: url('./assets/Fonts/Satoshi-Variable.ttf');
 }
 @font-face {
-  font-family: Seriguela;
-  src: url('./assets/Fonts/Seriguela-Bold.otf');
+  font-family: Futura;
+  src: url('./assets/Fonts/futura-medium-bt.ttf');
 }
 
 :root {
@@ -34,20 +34,24 @@ html, body {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
   background-color: var(--bg-clr-1);
-  cursor: none !important;
+  /* cursor: none !important; */
 }
 
 *, *::before, *::after {
   color: var(--txt-clr);
-  font-family: Satoshi;
+  font-family: Cinzel;
+  font-weight: 500;
   cursor: inherit !important;
   user-select: none;
   -moz-user-select: none;
   -moz-user-select: none;
+  box-sizing: border-box;
 }
 
 h1, h2 {

@@ -1,20 +1,13 @@
+import { NavLink } from 'react-router-dom'
 import './styles.css'
 
-export default function Nav({
-  backCallback = () => {},
-  continueCallback = () => {},
-  continueText = "Continue",
-  disabled = false
-}: {
-  backCallback?: () => void,
-  continueCallback?: () => void,
-  continueText?: String
-  disabled?: boolean
-}) {
+export default function Nav() {
   return (
     <div id="nav">
-      <button className="back-btn" onClick={() => backCallback()}>Back</button>
-      <button className="continue-btn" onClick={() => continueCallback()} disabled={disabled}>{continueText}</button>
+      <NavLink to="/faq" className="nav-link">FAQ</NavLink>
+      <NavLink to="/how-to-use" className="nav-link">How to Use</NavLink>
+      <NavLink to="/support" className="nav-link">Support</NavLink>
+      <NavLink to="/cashback" className="nav-link">Cashback Policy</NavLink>
     </div>
   )
 }

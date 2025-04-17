@@ -1,5 +1,12 @@
 #header {
     background-color: white;
-    height: 2rem;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    font-family: Futura;
+    font-size: 4vmin;
+    color: black;
+    padding: 1rem;
 }

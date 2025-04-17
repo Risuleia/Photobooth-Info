@@ -1,45 +1,60 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
-import { invoke } from "@tauri-apps/api/core";
-import { pictureDir } from "@tauri-apps/api/path";
+import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { invoke } from '@tauri-apps/api/core'
+import { pictureDir } from '@tauri-apps/api/path'
 
+import reset from '../../Utils/reset'
 
 import './styles.css'
-import { path } from "@tauri-apps/api";
+import { path } from '@tauri-apps/api'
+import Footer from '../../Components/Footer'
+
+import qr from '../../assets/Images/feedback-qr.svg'
 
 export default function Support() {
-  const navigate = useNavigate();
-  const [count, setCount] = useState(3);
-  const [photoIndex, setPhotoIndex] = useState(1)
+  const navigate = useNavigate()
 
-  useEffect(() => {
-    if (count > 0) {
-      const timer = setTimeout(() => {
-        setCount(prev => prev - 1);
-      }, 1000);
-
-      return () => clearTimeout(timer);
+  const fields = [
+    {
+    	label: "Contact number",
+    	value: "7550154640"
+    },
+    {
+    	label: "Support mail",
+    	value: "support@memorabooth.com"
+    },
+    {
+    	label: "Supporting hours",
+    	value: "10 am to 6pm"
     }
-  }, [count]);
+  ]
 
   return (
-    <div id="countdown">
-        {count > 0 && (
-          <motion.span
-            key={count}
-            className="count"
-            initial={{ opacity: 1, scale: 1 }}
-            animate={{ opacity: 0, scale: 2 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1, ease: "easeInOut" }}
-          >
-            {count}
-          </motion.span>
-        )}
-        <span className="count-text">
-          Choose a pose now, stay still after 1...
-        </span>
-    </div>
-  );
+    <motion.div
+      id='support'
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <div className='support-container'>
+        <div className="section-heading">Support</div>
+        <div className="support-fields">
+          {fields.map((field, index) => (
+            <div className="field-item" key={index}>
+              <div className="field-label">{field.label}:</div>
+              <div className="field-value">{field.value}</div>
+            </div>
+          ))}
+          <div className="field-qr">
+            <div className="field-label">Feedback form:</div>
+            <div className="qr">
+              <img src={qr} alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <Footer backCallback={() => navigate(-1)} />
+    </motion.div>
+  )
 }

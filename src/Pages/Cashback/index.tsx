@@ -1,92 +1,44 @@
 import { motion } from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { invoke } from '@tauri-apps/api/core'
+import { pictureDir } from '@tauri-apps/api/path'
+
+import reset from '../../Utils/reset'
 
 import './styles.css'
-import { documentDir } from '@tauri-apps/api/path'
+import { path } from '@tauri-apps/api'
+import Footer from '../../Components/Footer'
 
 export default function Cashback() {
   const navigate = useNavigate()
-  const [email, onSetEmail] = useState("")
-  const [documentPath, setDocumentPath] = useState("")
-  const [keyboardVisible, setKeyboardVisible] = useState(false)
-  const [layoutName, setLayoutName] = useState("default")
-
-  const keyboardRef = useRef(null)
-
-  useEffect(() => {
-    async function fetchPath() {
-      const path = await documentDir()
-      setDocumentPath(path)
-    }
-
-    fetchPath()
-  }, [])
-
-
-  const validate = (): boolean => {
-    return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)
-  }
-
-  function handleKeyPress(btn: string) {
-    switch (btn) {
-      case "{lock}": {
-        setLayoutName(prev => prev == "lock" ? "default" : "lock")
-        break
-      }
-      case "{shift}": {
-        setLayoutName(prev => prev == "shift" ? "default" : "shift")
-        break
-      }
-      case "{bksp}": {
-        onSetEmail(prev => prev.slice(0, -1))
-        break
-      }
-      default: break
-    }
-  }
-
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (
-        keyboardRef.current &&
-        !(keyboardRef.current as HTMLElement).contains(event.target as Node) &&
-        !(document.getElementById("email-input") as HTMLElement)?.contains(event.target as Node)
-      ) {
-        setKeyboardVisible(false)
-      }
-    }
-
-    if (keyboardVisible) {
-      document.addEventListener("mousedown", handleClickOutside)
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
-
-    return () => document.removeEventListener("mousedown", handleClickOutside)
-  }, [keyboardVisible])
 
   return (
     <motion.div
-      id='mail'
+      id='cashback'
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-        <div className='mail-container'>
-          <h1 className="heading">Enter <div>email</div> to collect <div>digital downloads</div></h1>
-          <div className="input-container">
+      <div className='cashback-container'>
+        <div className="section-heading">Cashback</div>
+        <div className="cashback-text">
+          <div className="cashback-title">
+            Want ₹50 back? It’s easy!
+          </div>
+          <div className="cashback-content">
+            Tag us in your Instagram story or post featuring your photobooth pictures.
+            <br />
+            Send us a screenshot of the post/story to support@memorabooth.com or DM us.
+            <br />
+            Once verified, you’ll receive a ₹50 cashback within 48 hours via UPI.
+          </div>
+          <div className="cashback-disclaimer">
+            Limited to one cashback per session. Offer valid only on the day of usage.
           </div>
         </div>
-        <div className="disclaimer">
-          Your photos will be sent to the provided email within 24 hours.
-          <br />
-          This email may also be used for marketing purposes, with an option to unsubscribe anytime.
-        </div>
-        {keyboardVisible && (
-          <div id='keyboard' ref={keyboardRef}>
-          </div>
-        )}
+      </div>
+      <Footer backCallback={() => navigate(-1)} />
     </motion.div>
   )
 }
