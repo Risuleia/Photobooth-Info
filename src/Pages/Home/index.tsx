@@ -1,13 +1,8 @@
 import { motion } from 'framer-motion'
-import { useNavigate } from 'react-router-dom'
-
-import arrow from '../../assets/Images/arrow.png'
 
 import './styles.css'
 import { useEffect, useState } from 'react'
 import { WebviewWindow } from '@tauri-apps/api/webviewWindow'
-import { invoke } from '@tauri-apps/api/core'
-import { documentDir } from '@tauri-apps/api/path'
 import Nav from '../../Components/Nav'
 
 import cover from '../../assets/Images/cover-bg.jpg'

@@ -1,13 +1,7 @@
 import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { invoke } from '@tauri-apps/api/core'
-import { pictureDir } from '@tauri-apps/api/path'
-
-import reset from '../../Utils/reset'
 
 import './styles.css'
-import { path } from '@tauri-apps/api'
 import Footer from '../../Components/Footer'
 
 export default function Cashback() {
