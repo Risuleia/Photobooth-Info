@@ -12,9 +12,12 @@
   "app": {
     "windows": [
       {
-        "title": "photobooth-info",
-        "width": 800,
-        "height": 600
+        "label": "main",
+        "title": "Photobooth Info",
+        "width": 400,
+        "height": 600,
+        "decorations": false,
+        "zoomHotkeysEnabled": false
       }
     ],
     "security": {
@@ -23,7 +26,13 @@
   },
   "bundle": {
     "active": true,
-    "targets": "all",
+    "targets": [
+      "deb",
+      "nsis",
+      "msi",
+      "app",
+      "dmg"
+    ],
     "icon": [
       "icons/32x32.png",
       "icons/128x128.png",
