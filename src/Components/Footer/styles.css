@@ -1,10 +1,14 @@
 #footer {
     display: flex;
     width: 100%;
-    padding: 0 8vmax 4vmax 0;
+    padding: 2vmax 8vmax 4vmax 0;
     justify-content: flex-end;
     align-items: flex-end;
     gap: 1rem;
+    position: fixed;
+    bottom: 0;
+    z-index: 110;
+    background-color: var(--bg-clr-1);
 }
 #footer button {
     border: 2px solid var(--txt-clr);

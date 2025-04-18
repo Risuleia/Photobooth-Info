@@ -1,5 +1,4 @@
 import React, { Suspense } from 'react'
-import { AnimatePresence } from 'framer-motion'
 import { Route, Routes, useLocation } from 'react-router-dom'
 
 const Home = React.lazy(() => import('./Pages/Home'))
@@ -13,15 +12,13 @@ export default function AnimatedRoutes() {
 
     return (
         <Suspense fallback={<div>Loading...</div>}>
-            <AnimatePresence>
-                <Routes location={location} key={location.pathname}>
-                    <Route path='/' element={<Home />} />
-                    <Route path='/cashback' element={<Cashback />} />
-                    <Route path='/faq' element={<FAQ />} />
-                    <Route path='/support' element={<Support />} />
-                    <Route path='/how-to-use' element={<HowToUse />} />
-                </Routes>
-            </AnimatePresence>
+            <Routes location={location} key={location.pathname}>
+                <Route path='/' element={<Home />} />
+                <Route path='/cashback' element={<Cashback />} />
+                <Route path='/faq' element={<FAQ />} />
+                <Route path='/support' element={<Support />} />
+                <Route path='/how-to-use' element={<HowToUse />} />
+            </Routes>
         </Suspense>
     )
 }

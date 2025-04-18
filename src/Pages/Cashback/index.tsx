@@ -1,19 +1,8 @@
-import { motion } from 'framer-motion'
-import { useNavigate } from 'react-router-dom'
-
 import './styles.css'
-import Footer from '../../Components/Footer'
 
 export default function Cashback() {
-  const navigate = useNavigate()
-
   return (
-    <motion.div
-      id='cashback'
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
+    <div id='cashback'>
       <div className='cashback-container'>
         <div className="section-heading">Cashback</div>
         <div className="cashback-text">
@@ -32,7 +21,6 @@ export default function Cashback() {
           </div>
         </div>
       </div>
-      <Footer backCallback={() => navigate(-1)} />
-    </motion.div>
+    </div>
   )
 }

@@ -1,14 +1,8 @@
-import { motion } from 'framer-motion'
-import { useNavigate } from 'react-router-dom'
-
-import './styles.css'
-import Footer from '../../Components/Footer'
-
 import qr from '../../assets/Images/feedback-qr.svg'
 
-export default function Support() {
-  const navigate = useNavigate()
+import './styles.css'
 
+export default function Support() {
   const fields = [
     {
     	label: "Contact number",
@@ -25,12 +19,7 @@ export default function Support() {
   ]
 
   return (
-    <motion.div
-      id='support'
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
+    <div id='support'>
       <div className='support-container'>
         <div className="section-heading">Support</div>
         <div className="support-fields">
@@ -48,7 +37,6 @@ export default function Support() {
           </div>
         </div>
       </div>
-      <Footer backCallback={() => navigate(-1)} />
-    </motion.div>
+    </div>
   )
 }

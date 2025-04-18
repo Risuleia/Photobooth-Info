@@ -1,21 +1,25 @@
 #root {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   flex-direction: column;
+  position: relative;
 }
 
 #main {
   width: 100%;
-  height: 100%;
+  flex-grow: 1;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  flex-direction: column;
+  overflow-y: auto;
 }
 
 .section-heading {
-  font-size: 4vmin;
+  font-size: 7vmin;
   color: var(--accent-1);
 }

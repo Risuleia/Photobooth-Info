@@ -1,11 +1,9 @@
-import { motion } from 'framer-motion'
-
-import './styles.css'
 import { useEffect, useState } from 'react'
 import { WebviewWindow } from '@tauri-apps/api/webviewWindow'
-import Nav from '../../Components/Nav'
 
-import cover from '../../assets/Images/cover-bg.jpg'
+import cover from '../../assets/Images/cover-bg.png'
+
+import './styles.css'
 
 export default function Home() {
     const [qPressCount, setQPressCount] = useState(0)
@@ -32,18 +30,12 @@ export default function Home() {
     }, [qPressCount])
 
   return (
-    <motion.div
-      id='home'
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
+    <div id='home'>
         <div className='home-container'>
             <div className="home-poster">
                 <img src={cover} alt="" />
             </div>
-            <Nav />
         </div>
-    </motion.div>
+    </div>
   )
 }

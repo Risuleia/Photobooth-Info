@@ -5,6 +5,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    overflow-y: scroll;
+    margin-bottom: 14vmax;
 }
 
 .faq-container {
@@ -16,7 +18,6 @@
     padding: 2rem;
     height: 100%;
     width: 100%;
-    overflow: auto;
 }
 
 .faq-qa {

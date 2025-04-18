@@ -1,13 +1,9 @@
-import { motion } from 'framer-motion'
-import { useNavigate } from 'react-router-dom'
+import { useMemo } from 'react'
 
 import './styles.css'
-import Footer from '../../Components/Footer'
 
 export default function FAQ() {
-  const navigate = useNavigate()
-
-  const faqs = [
+  const faqs = useMemo(() => ([
     {
     	q: "How many photos will be taken?",
     	a: "We’ll take 4 pictures, one after the other, with a 3-second countdown before each shot."
@@ -72,15 +68,10 @@ export default function FAQ() {
     	q: "What should I do if nothing happens after payment?",
     	a: "If your session doesn't start after payment, wait a few seconds. If it still doesn’t respond, email us at support@memorabooth.com with your payment details."
     }
-  ]
+  ]), [])
 
   return (
-    <motion.div
-      id='faq'
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
+    <div id='faq'>
       <div className='faq-container'>
         <div className="section-heading">FAQ</div>
         <div className="faq-qa">
@@ -96,7 +87,6 @@ export default function FAQ() {
           ))}
         </div>
       </div>
-      <Footer backCallback={() => navigate(-1)} />
-    </motion.div>
+    </div>
   )
 }
