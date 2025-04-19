@@ -1,6 +1,6 @@
 [package]
 name = "photobooth-info"
-version = "0.1.1"
+version = "0.1.2"
 description = "Info App for Photobooth"
 authors = ["Risuleia"]
 edition = "2021"
