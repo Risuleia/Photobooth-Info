@@ -5,8 +5,8 @@ export default function HowToUse() {
     <div id='how-to-use'>
       <div className='how-container'>
         <div className="section-heading">How to Use?</div>
-        <div className="tutorial-video">
-          <video src='/tutorial.webm' autoPlay loop></video>
+        <div className="tutorial-img">
+          <img src='/tutorial.png' />
         </div>
       </div>
     </div>

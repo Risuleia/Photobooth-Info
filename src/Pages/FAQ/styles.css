@@ -6,7 +6,7 @@
     align-items: center;
     flex-direction: column;
     overflow-y: scroll;
-    margin-bottom: 14vmax;
+    margin-bottom: 10vmax;
 }
 
 .faq-container {

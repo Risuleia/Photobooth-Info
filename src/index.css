@@ -1,6 +1,6 @@
 @font-face {
-  font-family: Cinzel;
-  src: url('./assets/Fonts/Cinzel-VariableFont_wght.ttf');
+  font-family: 'Lilita One';
+  src: url('./assets/Fonts/LilitaOne-Regular.ttf');
 }
 @font-face {
   font-family: Satoshi;
@@ -45,7 +45,7 @@ body {
 
 * {
   color: var(--txt-clr);
-  font-family: Cinzel;
+  font-family: 'Lilita One';
   font-weight: 500;
   cursor: inherit !important;
   user-select: none;
